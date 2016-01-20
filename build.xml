@@ -1115,10 +1115,8 @@
     <target name="basictests-compile-js">
         <property name="FLEX_HOME" value="${FLEXJS_HOME}"/>
         <property name="FALCONJX_HOME" value="${env.FALCONJX_HOME}"/>
-        <property name="GOOG_HOME" value="${env.GOOG_HOME}"/>
         <echo message="FLEX_HOME: ${FLEX_HOME}"/>
         <echo message="FALCONJX_HOME: ${FALCONJX_HOME}"/>
-        <echo message="GOOG_HOME: ${GOOG_HOME}"/>
         <delete dir="${basedir}/mustella/tests/basicTests/bin" failonerror="false" />
         <java jar="${FALCONJX_HOME}/lib/mxmlc.jar" resultProperty="errorCode"
             fork="true">
@@ -1133,7 +1131,7 @@
             <arg value="+playerglobal.version=${playerglobal.version}" />
             <arg value="+env.PLAYERGLOBAL_HOME=${env.PLAYERGLOBAL_HOME}" />
             <arg value="-js-output-type=FLEXJS" />
-            <arg value="-closure-lib=${GOOG_HOME}" />
+            <arg value="-closure-lib=${basedir}/js/lib/google/closure-library" />
             <arg value="-sdk-js-lib=${FLEXJS_HOME}/frameworks/js/FlexJS/libs" />
             <arg value="${basedir}/mustella/tests/basicTests/BasicTestsApp.mxml" />
         </java>
